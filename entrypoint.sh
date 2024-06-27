@@ -2,11 +2,11 @@
 
 # Path sumber dan tujuan
 SOURCE="/home/sourcecode/"
-STORAGE="/home/sourcecode/storage"
+STORAGE="/home/sourcecode/public/storage"
 DESTINATION="/var/www/html/dashboard-gateway"
 
 # Cek apakah folder storage sudah ada di tujuan
-if [ ! -d "$DESTINATION/storage" ]; then
+if [ ! -d "$DESTINATION/public/storage" ]; then
     echo "Folder storage tidak ditemukan di $DESTINATION, menyalin folder..."
     rsync -av --delete "$SOURCE/" "$DESTINATION"
 else
