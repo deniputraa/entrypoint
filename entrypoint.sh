@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Path sumber dan tujuan
-SOURCE="/home/sourcecode/storage"
+SOURCE="/home/sourcecode/"
+STORAGE="/home/sourcecode/storage"
 DESTINATION="/var/www/html/dashboard-gateway"
 
 # Cek apakah folder storage sudah ada di tujuan
