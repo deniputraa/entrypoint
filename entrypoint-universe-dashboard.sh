@@ -11,5 +11,5 @@ if [ ! -d "$DESTINATION/public/storage" ]; then
     rsync -av --delete "$SOURCE/" "$DESTINATION"
 else
     echo "Folder storage sudah ada di $DESTINATION, menyalin kecuali /storage..."
-    rsync -av --delete --exclude=/storage "$SOURCE/" "$DESTINATION"
+    rsync -av --delete --exclude=/public/storage "$SOURCE/" "$DESTINATION"
 fi
