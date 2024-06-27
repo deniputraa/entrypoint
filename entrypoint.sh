@@ -7,7 +7,7 @@ DESTINATION="/var/www/html/dashboard-gateway"
 # Cek apakah folder storage sudah ada di tujuan
 if [ ! -d "$DESTINATION/storage" ]; then
     echo "Folder storage tidak ditemukan di $DESTINATION, menyalin folder..."
-    rsync -av --delete /home/sourcecode/ /var/www/html/dashboard-gateway
+    rsync -av --delete "$SOURCE/" "$DESTINATION"
 else
-    rsync -av --delete --exclude='/storage' /home/sourcecode/ /var/www/html/dashboard-gateway
+    rsync -av --delete --exclude=/storage "$SOURCE/" "$DESTINATION"
 fi
