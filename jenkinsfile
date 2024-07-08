@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+        stages {
+            stage('Cloning repository') {
+                steps {
+                    git branch: 'main', credentialsId: 'github_ce', url: 'https://github.com/deniputraa/dnsptra.my.id.git'
+                }
+            }
+            stage('Deploy Docker Image To Staging') {
+                steps {
+                        script {
+                            sh '''
+                                ssh root@192.168.69.82 << EOF
+                                    cd /home/docker/
+                                    ls -lah
+                                    wget -O universe-dashboard.sh https://raw.githubusercontent.com/deniputraa/entrypoint/main/entrypoint-universe-dashboard.sh
+                            '''
+                        }
+                    }
+                }
+            stage('Push Docker Image to DockerHub') {
+                steps {
+                    script {
+    		            //script berikut untuk login ke dockerhub dan push docker yang udah di build.
+                        withCredentials([usernamePassword(credentialsId: 'dockerhub_ce', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                            sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                        }
+                    }
+                }
+            }
+        }
+}
