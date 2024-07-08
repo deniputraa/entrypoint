@@ -13,4 +13,4 @@ else
     echo "Folder storage sudah ada di $DESTINATION, menyalin kecuali /storage..."
     rsync -av --delete --exclude=/public/storage --exclude=/storage --exclude=.env "$SOURCE/" "$DESTINATION"
 fi
-#tes3213213213333344444
+#t
