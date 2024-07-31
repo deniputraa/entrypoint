@@ -7,7 +7,7 @@ services:
     volumes:
      - /var/www/html/:/var/www/html
     command: >
-      sh -c "wget -O entrypoint.sh https://raw.githubusercontent.com/deniputraa/entrypoint/main/entrypoint-universe-dashboard.sh?token=GHSAT0AAAAAACUTRVPZE6FD5CBXM6RXDLHYZVJYT7A && chmod +x entrypoint.sh && bash entrypoint.sh && tail -f /dev/null"
+      sh -c "wget -O entrypoint.sh https://raw.githubusercontent.com/deniputraa/entrypoint/main/entrypoint-universe-dashboard.sh?token=GHSAT0AAAAAACUTRVPY3Y4YW5MTPWBLI554ZVJ3S3Q && chmod +x entrypoint.sh && bash entrypoint.sh && tail -f /dev/null"
     networks:
       php-fpm_default3:
         ipv4_address: 192.168.11.5 #IP Statis untuk PHP-CLI
