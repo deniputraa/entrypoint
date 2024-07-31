@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  dashboard-gateway:
+    image: izidata/dashboard-gateway:dev
+    container_name: dashboard-gateway
+    volumes:
+     - /var/www/html/:/var/www/html
+    command: >
+      sh -c "wget -O entrypoint.sh https://raw.githubusercontent.com/deniputraa/entrypoint/main/entrypoint-dashboard-gateway.sh?token=GHSAT0AAAAAACUTRVPY5ZXY72KNRB2ML7DEZVJTJJQ && chmod +x entrypoint.sh && bash entrypoint.sh && tail -f /dev/null"
+    networks:
+      php-fpm_default3:
+        ipv4_address: 192.168.11.5 #IP Statis untuk PHP-CLI
+networks:
+  php-fpm_default3:
+    external: true
+
+volumes:
+  volume1:
+    external: true
