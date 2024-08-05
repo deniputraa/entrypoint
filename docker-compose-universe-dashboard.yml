@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   dashboard-gateway:
-    image: 192.168.69.110:5000/izidata/universe-dashboard
+    image: 192.168.69.110:5000/izidata/universe-dashboard:dev
     container_name: universe-dashboard
     volumes:
      - /var/www/html/:/var/www/html
